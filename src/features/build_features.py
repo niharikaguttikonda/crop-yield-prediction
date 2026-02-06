@@ -1,16 +1,22 @@
+print("✅ NEW BUILD_FEATURES FILE IS RUNNING")
+
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
 
 def build_features():
+    print("🚀 build_features() function called")
+
     df = pd.read_csv("data/processed/finaldataset.csv")
 
-    le_area = LabelEncoder()
-    le_item = LabelEncoder()
-
-    df["Area_enc"] = le_area.fit_transform(df["Area"])
-    df["Item_enc"] = le_item.fit_transform(df["Item"])
-
-    X = df[["Area_enc", "Item_enc", "Year"]]
+    X = df[["Area", "Item", "Year"]]
     y = df["Yield"]
 
-    return X, y
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("cat", OneHotEncoder(handle_unknown="ignore"), ["Area", "Item"]),
+            ("num", "passthrough", ["Year"])
+        ]
+    )
+
+    return X, y, preprocessor
