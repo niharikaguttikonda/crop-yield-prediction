@@ -1,27 +1,48 @@
 import joblib
-import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Load trained pipeline
+# Load trained model
 model = joblib.load("models/crop_yield_model.pkl")
 
-# Extract trained RandomForest
-rf = model.named_steps["regressor"]
+# Get feature importances
+importances = model.feature_importances_
 
-# Get feature names after OneHotEncoding
-preprocessor = model.named_steps["preprocessor"]
-feature_names = preprocessor.get_feature_names_out()
+# Feature names (based on training pipeline)
+feature_names = [
+    "Item_Potatoes",
+    "Year",
+    "Item_Sweet potatoes",
+    "Item_Cassava",
+    "Item_Yams",
+    "Other Items",
+    "Area_Israel",
+    "Area_United States",
+    "Area_Netherlands",
+    "Area_New Zealand",
+    "Area_Japan",
+    "Area_Belgium-Luxembourg",
+    "Area_Switzerland",
+    "Area_United Kingdom",
+    "Area_Cook Islands"
+]
 
-# Create importance dataframe
-importance_df = pd.DataFrame({
-    "Feature": feature_names,
-    "Importance": rf.feature_importances_
-}).sort_values(by="Importance", ascending=False).head(15)
+# Sort features by importance
+indices = np.argsort(importances)
+sorted_importances = importances[indices]
+sorted_features = np.array(feature_names)[indices]
 
 # Plot
-plt.figure(figsize=(10,6))
-plt.barh(importance_df["Feature"], importance_df["Importance"])
-plt.xlabel("Importance")
-plt.title("Top Feature Importances for Crop Yield Prediction")
-plt.gca().invert_yaxis()
+plt.figure(figsize=(10, 7))
+plt.barh(sorted_features, sorted_importances)
+plt.xlabel("Feature Importance")
+plt.ylabel("Features")
+plt.title("Feature Importance for Crop Yield Prediction")
+
+# Fix label visibility (macOS)
+plt.tight_layout()
+plt.subplots_adjust(left=0.35)
+
+# Save plot
+plt.savefig("outputs/feature_importance.png", dpi=300, bbox_inches="tight")
 plt.show()
