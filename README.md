@@ -139,7 +139,7 @@ Feature engineering completed
 Model trained successfully
 MSE: 955713047.844866
 R2 Score: 0.7930267194202911
-Predicted Yield: 726890.18
+Predicted Yield: 26890.18
 ```
 
 ## Model Reasoning
