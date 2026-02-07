@@ -157,5 +157,5 @@ Predicted Yield: 26890.18
 
 # Author
 Guttikonda Niharika
-AI/ML Engineering Enthusiast
+AIML Enthusiast
 
