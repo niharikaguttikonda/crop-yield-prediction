@@ -76,12 +76,12 @@ crop-yield-production/
 - GitHub
 
 ## Key Features
-- End-to-end machine learning pipeline: Data → Features → Model → Predictions
-- Modular project structure for easy maintenance and reproducibility
-- Feature engineering with categorical encoding
-- Regression-based yield prediction
+- End-to-end machine learning pipeline from data preprocessing to prediction
+- Modular project structure with separate scripts for each stage
+- Feature engineering using One-Hot Encoding for categorical variables
+- Crop yield prediction using a Random Forest Regressor
 - Model evaluation using Mean Squared Error (MSE) and R² score
-- Reproducible scripts for each stage of the pipeline
+- Trained model saved and reused for inference
 
 ## Machine Learning Pipeline
 
@@ -97,9 +97,10 @@ crop-yield-production/
 - Selection of numerical features
 
 ### 4. Model Training
-- Linear Regression model
-- Train-test split
+- Trains a Random Forest Regressor within a pipeline
+- Splits data into training and testing sets
 - Evaluation using MSE and R²
+- Saves the trained model as a .pkl file
 
 ### 5. Inference
 - Predicts crop yield for given inputs
@@ -142,16 +143,17 @@ Predicted Yield: 726890.18
 ```
 
 ## Model Reasoning
-- Linear Regression was chosen for its interpretability and simplicity
-- Focus was placed on understanding feature impact rather than maximizing accuracy
-- Evaluation metrics help explain model performance and limitations
-
+- **Random Forest Regressor** was chosen for its ability to:
+  - Capture non-linear relationships
+  - Handle categorical variables effectively after encoding
+  - Provide robust performance with minimal feature scaling
+- A **pipeline architecture** ensures consistent preprocessing during both training and inference
+- Evaluation metrics (**MSE** and **R² score**) help measure prediction accuracy and model reliability
 
 # Future Improvements
--Use advanced models (Random Forest, XGBoost)
--Add time-series forecasting
--Integrate weather APIs
--Build a web interface for real-time predictions
+-Improve prediction accuracy by using advanced machine learning models and time-series techniques.
+-Incorporate additional features such as weather and soil data for better real-world predictions.
+-Deploy the model as a web-based application for easy access and real-time use.
 
 # Author
 Guttikonda Niharika
