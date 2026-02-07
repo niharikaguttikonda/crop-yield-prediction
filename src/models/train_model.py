@@ -1,5 +1,4 @@
-print("✅ NEW TRAIN_MODEL FILE IS RUNNING")
-
+print(" NEW TRAIN_MODEL FILE IS RUNNING")
 import joblib
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
@@ -32,6 +31,6 @@ def train_model(X, y, preprocessor):
 
     joblib.dump(model, "models/crop_yield_model.pkl")
 
-    print("✅ Model saved to models/crop_yield_model.pkl")
+    print("Model saved to models/crop_yield_model.pkl")
 
     return model, mse, r2

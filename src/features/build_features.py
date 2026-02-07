@@ -1,4 +1,4 @@
-print("✅ NEW BUILD_FEATURES FILE IS RUNNING")
+print("NEW BUILD_FEATURES FILE IS RUNNING")
 
 import pandas as pd
 from sklearn.compose import ColumnTransformer
