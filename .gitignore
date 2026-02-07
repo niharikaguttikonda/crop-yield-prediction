@@ -212,4 +212,6 @@ __pycache__/
 *.save
 scripts/plot_feature_importance.py
 scripts/run_cross_validation.py
+models/*.pkl
+
 
