@@ -151,9 +151,9 @@ Predicted Yield: 26890.18
 - Evaluation metrics (**MSE** and **R² score**) help measure prediction accuracy and model reliability
 
 # Future Improvements
--Improve prediction accuracy by using advanced machine learning models and time-series techniques.
--Incorporate additional features such as weather and soil data for better real-world predictions.
--Deploy the model as a web-based application for easy access and real-time use.
+- Improve prediction accuracy by using advanced machine learning models and time-series techniques.
+- Incorporate additional features such as weather and soil data for better real-world predictions.
+- Deploy the model as a web-based application for easy access and real-time use.
 
 # Author
 Guttikonda Niharika
