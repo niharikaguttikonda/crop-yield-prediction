@@ -57,6 +57,7 @@ crop-yield-production/
 │
 ├── .gitignore
 └── README.md
+```
 
 
 ## Tech Stack
@@ -108,17 +109,16 @@ crop-yield-production/
 ```bash
 # Preprocess the data
 PYTHONPATH=. python3 scripts/run_preprocess.py
-
 # Build features
 PYTHONPATH=. python3 scripts/run_features.py
-
 # Train the model
 PYTHONPATH=. python3 scripts/run_train.py
-
 # Run prediction
 PYTHONPATH=. python3 scripts/run_predict.py
+```
 
 #Sample Output
+```bash
 Preprocessing completed successfully
           Area   Item  Year  Yield
 0  Afghanistan  Maize  1961  14000
@@ -139,6 +139,7 @@ Model trained successfully
 MSE: 4457808843.8716
 R2 Score: 0.03459796568236129
 Predicted Yield: 79796.72560952744
+```
 
 ## Model Reasoning
 - Linear Regression was chosen for its interpretability and simplicity
@@ -146,13 +147,13 @@ Predicted Yield: 79796.72560952744
 - Evaluation metrics help explain model performance and limitations
 
 
-#Future Improvements
+# Future Improvements
 -Use advanced models (Random Forest, XGBoost)
 -Add time-series forecasting
 -Integrate weather APIs
 -Build a web interface for real-time predictions
 
-#Author
+# Author
 Guttikonda Niharika
 AI/ML Engineering Enthusiast
 
